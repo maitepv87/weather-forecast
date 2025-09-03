@@ -1,0 +1,8 @@
+.homeWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    width: 100%;
+}
