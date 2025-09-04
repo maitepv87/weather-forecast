@@ -1,12 +1,64 @@
-# React + Vite
+# **Weather Forecast**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## **Description**
 
-Currently, two official plugins are available:
+Weather Forecast App is a **responsive and accessible** React application that allows users to **search for any city** and view **current weather conditions** along with a **7‑day forecast**. It follows best practices in frontend development, leveraging **Context API with reducer** for async state management, **custom hooks** for debounced API calls, and **CSS Modules** for scoped, maintainable styling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is part of my portfolio to **demonstrate clean, scalable frontend architecture** with no external UI libraries, focusing on **modularity, accessibility, and editorial clarity**.
 
-## Expanding the ESLint configuration
+### **Key Features**
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **City search** with debounced input to reduce unnecessary API calls.
+- **Current weather details**: temperature, feels like, min/max, humidity, wind speed, and pressure.
+- **7‑day forecast** with daily summaries and weather icons.
+- **°C / °F toggle** with instant conversion and smooth UX.
+- **Responsive design** for mobile, tablet, and desktop.
+- **Accessible UI** with ARIA labels and keyboard navigation.
+- **Modular and scalable architecture** for maintainability and onboarding clarity.
+
+---
+
+## **Technologies Used**
+
+- **React** – Component-based UI development.
+- **Context API + Reducer** – Global async state management without Redux.
+- **Vite** – Fast build tool and development environment.
+- **CSS Modules** – Scoped, maintainable, and accessible styling.
+- **OpenWeather API** – Reliable weather data source.
+
+---
+
+## **Getting Started**
+
+### **Installation & Setup**
+
+Follow these steps to run the project locally:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/maitepv87/weather-forecast.git
+   cd weather-forecast
+
+   ```
+
+2. Install dependencie:
+
+   ```bash
+   npm install
+   ```
+
+3. Set up environment variables in a .env file:
+
+   ```ini
+   VITE_API_URL=https://api.openweathermap.org/data/2.5/
+   VITE_API_KEY=your_openweather_api_key
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+Then open http://localhost:3000 in your browser.
