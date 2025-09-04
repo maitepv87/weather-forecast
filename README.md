@@ -2,7 +2,7 @@
 
 ## **Description**
 
-Weather Forecast App is a **responsive and accessible** React application that allows users to **search for any city** and view **current weather conditions** along with a **7‑day forecast**. It follows best practices in frontend development, leveraging **Context API with reducer** for async state management, **custom hooks** for debounced API calls, and **CSS Modules** for scoped, maintainable styling.
+Weather Forecast App is a **responsive and accessible** React application that allows users to **search for any city** and view **current weather conditions** along with a **7‑day forecast**. It follows best practices in frontend development, leveraging **Context API with reducer** for async state management, and **CSS Modules** for scoped, maintainable styling.
 
 This project is part of my portfolio to **demonstrate clean, scalable frontend architecture** with no external UI libraries, focusing on **modularity, accessibility, and editorial clarity**.
 
