@@ -2,38 +2,45 @@
     display: flex;
     justify-content: flex-start;
     width: 100%;
-    padding-block: 2rem;
+    padding-block: 1rem 0.5rem;
 }
 
 .card {
-    background-color: #ffffff;
-    border-radius: 12px;
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius);
     padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 .cardHeader {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1.5rem;
+    align-items: center;
 }
 
 .cardHeader h2 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--color-text);
     margin: 0;
 }
 
-/* Layout horizontal para los datos */
 .cardContent {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
-
 }
 
 .leftContent,
@@ -43,7 +50,6 @@
     align-items: flex-start;
 }
 
-/* Columna izquierda */
 .leftContent {
     flex: 1;
     min-width: 200px;
@@ -51,13 +57,9 @@
 
 .cityName {
     font-size: 1.25rem;
-    font-weight: bold;
+    font-weight: 600;
     margin-bottom: 0.5rem;
-}
-
-.temperature {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    color: var(--color-text);
 }
 
 .mainWeatherBlock {
@@ -75,12 +77,16 @@
 .temperatureInline {
     font-size: 2rem;
     font-weight: bold;
+    color: var(--color-text);
 }
 
-/* Columna derecha */
+.condition {
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-top: 0.25rem;
+}
+
 .rightContent {
-    display: flex;
-    flex-direction: column;
     flex: 1;
     min-width: 200px;
     gap: 0.5rem;
@@ -89,5 +95,20 @@
 .rightContent p {
     margin: 0;
     font-size: 0.95rem;
-    color: #1e293b;
+    color: var(--color-text);
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 1.5rem;
+    }
+
+    .cardContent {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .temperatureInline {
+        font-size: 1.75rem;
+    }
 }

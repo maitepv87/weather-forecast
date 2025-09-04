@@ -7,6 +7,7 @@ const initialState = {
   error: null,
   weatherData: null,
   forecastData: null,
+  unit: "metric",
 };
 
 // Reducer to handle async lifecycle: start, success, error, reset
@@ -22,6 +23,11 @@ const reducer = (state, action) => {
       return { ...state, loading: false, error: action.payload };
     case ASYNC_ACTIONS.RESET_STATE:
       return initialState;
+    case ASYNC_ACTIONS.TOGGLE_UNIT:
+      return {
+        ...state,
+        unit: state.unit === "metric" ? "imperial" : "metric",
+      };
     default:
       return state;
   }

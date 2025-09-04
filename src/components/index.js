@@ -4,4 +4,5 @@ export * from "./ForecastCard/ForecastCard";
 export * from "./Header/Header";
 export * from "./LoadingSpinner/LoadingSpinner";
 export * from "./SearchBox/SearchBox";
+export * from "./UnitToggle/UnitToggle";
 export * from "./WeatherCard/WeatherCard";

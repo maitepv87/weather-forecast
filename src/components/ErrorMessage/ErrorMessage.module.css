@@ -1,23 +1,33 @@
 .error {
-    background-color: #ffe5e5;
-    color: #b00020;
+    background-color: var(--color-error-bg, #ffe5e5);
+    color: var(--color-error-text, #b00020);
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
     max-width: 400px;
     margin: 1rem auto;
+    border: 1px solid rgba(176, 0, 32, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .retryBtn {
     margin-top: 0.5rem;
-    background-color: #b00020;
-    color: white;
+    background-color: var(--color-error-text, #b00020);
+    color: #fff;
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .retryBtn:hover {
     background-color: #d32f2f;
+    transform: translateY(-1px);
+}
+
+.retryBtn:focus {
+    outline: 2px solid var(--color-focus, #005fcc);
+    outline-offset: 2px;
 }

@@ -2,6 +2,7 @@ import styles from "./ForecastCard.module.css";
 import { useContext } from "react";
 import { AsyncContext } from "../../context/AsyncContext";
 import { forecastGroupByDay } from "../../utils";
+import { toFahrenheit } from "../../utils/unitConversions";
 
 export const ForecastCard = () => {
   const { state } = useContext(AsyncContext);
@@ -11,6 +12,13 @@ export const ForecastCard = () => {
     state.forecastData.list.length > 0
       ? forecastGroupByDay(state.forecastData.list)
       : [];
+
+  const formatTemp = (tempC) => {
+    if (state.unit === "metric") {
+      return `${Math.round(tempC)}°C`;
+    }
+    return `${Math.round(toFahrenheit(tempC))}°F`;
+  };
 
   return (
     <section className={styles.forecastSection}>
@@ -28,7 +36,7 @@ export const ForecastCard = () => {
               />
               <p>{day.condition}</p>
               <p>
-                {Math.round(day.temp_max)}° / {Math.round(day.temp_min)}°
+                {formatTemp(day.temp_max)} / {formatTemp(day.temp_min)}
               </p>
             </div>
           ))}

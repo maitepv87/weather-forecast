@@ -11,11 +11,7 @@ export const Header = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
-            src={githubLogo}
-            alt="GitHub"
-            style={{ width: "32px", height: "auto" }}
-          />
+          <img src={githubLogo} alt="GitHub" className={styles.githubLogo} />
         </a>
       </div>
     </header>

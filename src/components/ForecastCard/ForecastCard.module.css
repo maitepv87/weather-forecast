@@ -1,58 +1,63 @@
-.card {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.forecastSection {
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
+    padding-block: 1rem;
+}
+
+.card {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .cardHeader {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1.5rem;
+    align-items: center;
 }
 
 .cardHeader h2 {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--color-text);
     margin: 0;
 }
 
-/* Layout horizontal para los datos */
 .cardContent {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-
-}
-
-.forecastSection {
-    display: flex;
-    justify-content: flex-start;
-    width: 100%;
-    padding-block: 2rem;
+    gap: 1.0rem;
 }
 
 .forecastCard {
+    flex: 1 1 calc(14% - 1rem);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: #f8fafc;
-    border-radius: 8px;
-    padding: 1rem;
+    background-color: var(--color-bg);
+    border-radius: calc(var(--radius) - 4px);
+    padding: 0.75rem;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     text-align: center;
-    font-family: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.forecastCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .forecastCard p {
     margin: 0.25rem 0;
     font-size: 0.95rem;
-    color: #1e293b;
+    color: var(--color-text);
 }
 
 .forecastCard p:first-child {
@@ -60,8 +65,19 @@
     font-size: 1rem;
 }
 
-.cardContent.forecastGrid {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.forecastCard img {
+    width: 64px;
+    height: 64px;
+}
+
+@media (max-width: 900px) {
+    .forecastCard {
+        flex: 1 1 calc(33.33% - 1rem);
+    }
+}
+
+@media (max-width: 600px) {
+    .forecastCard {
+        flex: 1 1 calc(50% - 1rem);
+    }
 }

@@ -58,36 +58,28 @@ export const HomePage = () => {
       ? forecastGroupByDay(state.forecastData.list)
       : [];
 
-  if (state.loading) {
-    return <LoadingSpinner />;
-  }
-
-  if (state.error) {
-    return (
-      <ErrorMessage
-        message={
-          state.error ||
-          "We couldn’t get the weather information right now. Please try again later."
-        }
-        onRetry={() => {
-          setDebouncedTerm(searchTerm.trim());
-        }}
-      />
-    );
-  }
-
   return (
     <div className={styles.homeWrapper}>
       <Header />
-
       <main className={styles.main}>
-        <SearchBox value={searchTerm} onChange={handleChange} />
-
-        {!state.loading && state?.weatherData?.main && <WeatherCard />}
-
-        {!state.loading && sevenDayForecast.length > 0 && <ForecastCard />}
+        {state.loading && <LoadingSpinner />}
+        {state.error && (
+          <ErrorMessage
+            message={
+              state.error ||
+              "We couldn’t get the weather information right now. Please try again later."
+            }
+            onRetry={() => setDebouncedTerm(searchTerm.trim())}
+          />
+        )}
+        {!state.loading && !state.error && (
+          <>
+            <SearchBox value={searchTerm} onChange={handleChange} />
+            {state?.weatherData?.main && <WeatherCard />}
+            {sevenDayForecast.length > 0 && <ForecastCard />}
+          </>
+        )}
       </main>
-
       <Footer />
     </div>
   );
