@@ -1,15 +1,14 @@
 import styles from "./WeatherCard.module.css";
-import { useContext } from "react";
-import { AsyncContext } from "../../context/AsyncContext";
-import { ASYNC_ACTIONS } from "../../context/asyncActions";
+import { useAsyncContext } from "../../context/AsyncContext";
+import { ACTION_TYPES } from "../../context/actionTypes";
 import { UnitToggle } from "../";
 import { toFahrenheit, toMph } from "../../utils/unitConversions";
 
 export const WeatherCard = () => {
-  const { state, dispatch } = useContext(AsyncContext);
+  const { state, dispatch } = useAsyncContext();
 
   const handleToggle = () => {
-    dispatch({ type: ASYNC_ACTIONS.TOGGLE_UNIT });
+    dispatch({ type: ACTION_TYPES.TOGGLE_UNIT });
   };
 
   const temp =

@@ -10,6 +10,7 @@ export const Header = () => {
           href="https://github.com/maitepv87/weather-forecast"
           target="_blank"
           rel="noopener noreferrer"
+          title="View source code on GitHub"
         >
           <img src={githubLogo} alt="GitHub" className={styles.githubLogo} />
         </a>

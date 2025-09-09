@@ -1,28 +1,10 @@
-/**
- * AsyncContext + useAsyncReducer
- *
- * Modular React pattern for global async state management using Context and useReducer.
- * Designed for scalable, asynchronous data flows with built-in loading and error handling.
- *
- * @returns {Object} AsyncContext.Provider with { state, dispatch }
- *
- * Why this pattern?
- * - Avoids prop drilling by centralizing state.
- * - Keeps reducer pure and testable.
- * - Separates async logic for clarity and reuse.
- *
- * Usage:
- * 1. Wrap your app with <AsyncProvider> to provide global access to state and dispatch.
- * 2. Use `useContext(AsyncContext)` inside components to consume state and dispatch.
- * 3. Call `fetchAsyncData(dispatch)` to trigger an async request and update state.
- *
- */
-
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { useAsyncReducer } from "./useAsyncReducer";
 
+// Create the context
 export const AsyncContext = createContext();
 
+// Provider that wraps the app
 export const AsyncProvider = ({ children }) => {
   const { state, dispatch } = useAsyncReducer();
   return (
@@ -30,4 +12,13 @@ export const AsyncProvider = ({ children }) => {
       {children}
     </AsyncContext.Provider>
   );
+};
+
+// Hook to consume the context
+export const useAsyncContext = () => {
+  const context = useContext(AsyncContext);
+  if (!context) {
+    throw new Error("useAsyncContext must be used within an AsyncProvider");
+  }
+  return context;
 };

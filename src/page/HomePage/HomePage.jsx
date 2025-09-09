@@ -1,8 +1,8 @@
 import styles from "./HomePage.module.css";
-import { useContext, useEffect, useState } from "react";
-import { AsyncContext } from "../../context/AsyncContext";
+import { useEffect, useState } from "react";
+import { useAsyncContext } from "../../context/AsyncContext";
 import { fetchAsyncData } from "../../context/actions/fetchAsyncData";
-import { ASYNC_ACTIONS } from "../../context/asyncActions";
+import { ACTION_TYPES } from "../../context/actionTypes";
 import { forecastGroupByDay } from "../../utils";
 import {
   LoadingSpinner,
@@ -20,7 +20,7 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 export const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedTerm, setDebouncedTerm] = useState("");
-  const { state, dispatch } = useContext(AsyncContext);
+  const { state, dispatch } = useAsyncContext();
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -38,12 +38,12 @@ export const HomePage = () => {
       fetchAsyncData(
         dispatch,
         weatherUrl,
-        ASYNC_ACTIONS.FETCH_WEATHER_SUCCEEDED
+        ACTION_TYPES.FETCH_WEATHER_SUCCEEDED
       );
       fetchAsyncData(
         dispatch,
         forecastUrl,
-        ASYNC_ACTIONS.FETCH_FORECAST_SUCCEEDED
+        ACTION_TYPES.FETCH_FORECAST_SUCCEEDED
       );
     }
   }, [debouncedTerm, dispatch]);

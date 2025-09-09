@@ -6,6 +6,8 @@ Weather Forecast App is a **responsive and accessible** React application that a
 
 This project is part of my portfolio to **demonstrate clean, scalable frontend architecture** with no external UI libraries, focusing on **modularity, accessibility, and editorial clarity**.
 
+![App Screenshot](./src/assets/Screenshot_Weather.png)
+
 ### **Key Features**
 
 - **City search** with debounced input to reduce unnecessary API calls.
