@@ -1,10 +1,10 @@
 import styles from "./ForecastCard.module.css";
-import { useAsyncContext } from "../../context/AsyncContext";
+import { useWeatherContext } from "../../context/useWeatherContext";
 import { forecastGroupByDay } from "../../utils";
 import { toFahrenheit } from "../../utils/unitConversions";
 
 export const ForecastCard = () => {
-  const { state } = useAsyncContext();
+  const { state } = useWeatherContext();
 
   const sevenDayForecast =
     Array.isArray(state.forecastData?.list) &&

@@ -1,12 +1,12 @@
 import "./App.css";
-import { AsyncProvider } from "./context/AsyncContext";
+import { WeatherProvider } from "./context/WeatherProvider";
 import { HomePage } from "./page";
 
 function App() {
   return (
-    <AsyncProvider>
+    <WeatherProvider>
       <HomePage />
-    </AsyncProvider>
+    </WeatherProvider>
   );
 }
 

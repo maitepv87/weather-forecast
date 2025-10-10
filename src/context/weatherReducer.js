@@ -1,8 +1,7 @@
-import { useReducer } from "react";
 import { ACTION_TYPES } from "./actionTypes";
 
 // Initial state for async operations: loading, error, and data
-const initialState = {
+export const initialState = {
   loading: false,
   error: null,
   weatherData: null,
@@ -11,7 +10,7 @@ const initialState = {
 };
 
 // Reducer to handle async lifecycle: start, success, error, reset
-const reducer = (state, action) => {
+export const weatherReducer = (state, action) => {
   switch (action.type) {
     case ACTION_TYPES.FETCH_STARTED:
       return { ...state, loading: true, error: null };
@@ -31,10 +30,4 @@ const reducer = (state, action) => {
     default:
       return state;
   }
-};
-
-// Custom hook to manage async state transitions
-export const useAsyncReducer = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  return { state, dispatch };
 };

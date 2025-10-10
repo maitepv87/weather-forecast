@@ -1,7 +1,7 @@
 import styles from "./HomePage.module.css";
 import { useEffect, useState } from "react";
-import { useAsyncContext } from "../../context/AsyncContext";
-import { fetchAsyncData } from "../../context/actions/fetchAsyncData";
+import { useWeatherContext } from "../../context/useWeatherContext";
+import { fetchWeatherData } from "../../context/actions/fetchWeatherData";
 import { ACTION_TYPES } from "../../context/actionTypes";
 import { forecastGroupByDay } from "../../utils";
 import {
@@ -20,7 +20,7 @@ const API_KEY = import.meta.env.VITE_API_KEY;
 export const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [debouncedTerm, setDebouncedTerm] = useState("");
-  const { state, dispatch } = useAsyncContext();
+  const { state, dispatch } = useWeatherContext();
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -35,12 +35,12 @@ export const HomePage = () => {
       const weatherUrl = `${BASE_URL}weather?q=${debouncedTerm}&units=metric&appid=${API_KEY}`;
       const forecastUrl = `${BASE_URL}forecast?q=${debouncedTerm}&units=metric&appid=${API_KEY}`;
 
-      fetchAsyncData(
+      fetchWeatherData(
         dispatch,
         weatherUrl,
         ACTION_TYPES.FETCH_WEATHER_SUCCEEDED
       );
-      fetchAsyncData(
+      fetchWeatherData(
         dispatch,
         forecastUrl,
         ACTION_TYPES.FETCH_FORECAST_SUCCEEDED

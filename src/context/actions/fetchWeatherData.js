@@ -1,6 +1,8 @@
 import { ACTION_TYPES } from "../actionTypes";
 
-export const fetchAsyncData = async (dispatch, url, successType) => {
+// successType:  ACTION_TYPES.FETCH_WEATHER_SUCCEEDED or  ACTION_TYPES.FETCH_FORECAST_SUCCEEDED
+
+export const fetchWeatherData = async (dispatch, url, successType) => {
   dispatch({ type: ACTION_TYPES.FETCH_STARTED });
   try {
     const response = await fetch(url);
