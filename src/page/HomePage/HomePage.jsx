@@ -12,6 +12,7 @@ import {
   ForecastCard,
   Footer,
   SearchBox,
+  EmptyState,
 } from "../../components";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -77,6 +78,15 @@ export const HomePage = () => {
             <SearchBox value={searchTerm} onChange={handleChange} />
             {state?.weatherData?.main && <WeatherCard />}
             {sevenDayForecast.length > 0 && <ForecastCard />}
+
+            {!state.loading &&
+              !state.error &&
+              debouncedTerm !== "" &&
+              !state.weatherData?.main && (
+                <EmptyState
+                  message={`No weather data found for "${debouncedTerm}".`}
+                />
+              )}
           </>
         )}
       </main>

@@ -1,0 +1,17 @@
+.empty {
+    text-align: center;
+    padding: 2rem;
+    color: #4b5563;
+    /* gray-700 */
+    background-color: #f9fafb;
+    /* subtle background */
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+}
+
+.icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #9ca3af;
+    /* gray-400 */
+}

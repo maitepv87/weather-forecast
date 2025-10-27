@@ -2,11 +2,22 @@
 
 Weather Forecast App is a **responsive and accessible** React application that allows users to **search for any city** and view **current weather conditions** along with a **7‑day forecast**. It follows best practices in frontend development, leveraging **Context API with reducer** for async state management, and **CSS Modules** for scoped, maintainable styling.
 
+![App Screenshot](./src/assets/Screenshot_Weather.png)
+
+---
+
+## Live Demo
+
+Explore the app live on Vercel:  
+🔗 [weather-forecast-rho-two.vercel.app](https://weather-forecast-rho-two.vercel.app/)
+
+---
+
 ## **Description**
 
 This project is part of my portfolio to **demonstrate clean, scalable frontend architecture** with no external UI libraries, focusing on **modularity, accessibility, and editorial clarity**.
 
-![App Screenshot](./src/assets/Screenshot_Weather.png)
+---
 
 ### **Key Features**
 
